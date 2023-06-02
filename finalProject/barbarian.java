@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.lang.Math.*;
 
 public class barbarian{
     private int strength = 3;
@@ -16,7 +17,28 @@ public class barbarian{
     }
 
     private void addTalentPoints(int s, int a, int st, int i, int sp){
-        
+        strength += s;
+        agility += a;
+        stamina += st;
+        intelligence += i;
+        spirit += sp;
+    }
+
+    private void attack(){
+        boolean crit = false;
+        if()
+    }
+    
+    private void dodge(){
+
+    }
+
+    private void castASpell(){
+
+    }
+    
+    private void run(){
+
     }
 }
 
