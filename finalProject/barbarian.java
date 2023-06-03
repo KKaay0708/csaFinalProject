@@ -1,4 +1,3 @@
-import java.util.Scanner;
 import java.lang.Math.*;
 
 public class barbarian{
@@ -7,6 +6,9 @@ public class barbarian{
     private int stamina = 4;
     private int intelligence = 1;
     private int spirit = 1;
+    private int health;
+    private int gold;
+    private int mana;
 
     public barbarian(int s, int a, int st, int i, int sp){
         strength += s;
@@ -24,17 +26,39 @@ public class barbarian{
         spirit += sp;
     }
 
-    private void attack(){
-        boolean crit = false;
-        if()
+    private void addItem(int s, int a, int st, int i, int sp){
+        strength += s;
+        agility += a;
+        stamina += st;
+        intelligence += i;
+        spirit += sp;
+        health = stamina * 5;
+        mana = intelligence * 5;
+    }
+
+    private double attack(){
+        private double damage;
+        damage = strength + (int)Math.random()*2;
+        if(Math.random()*55 <= agility){
+            
+            return damage * 1.5;
+        } else {
+            return damage;
+        }
+
     }
     
-    private void dodge(){
-
+    private boolean dodge(){
+        if(Math.random(0, 55) <= agility){
+            return true;
+        } else {
+            return false;
+        }
     }
 
-    private void castASpell(){
-
+    private double castASpell(){
+        mana -= 15;
+        return spirit*2;
     }
     
     private void run(){
