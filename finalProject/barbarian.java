@@ -29,7 +29,7 @@ public class barbarian{
     }
 
     private double attack(){
-        private double damage;
+        double damage;
         damage = strength + (int)Math.random()*2;
         if(Math.random()*55 <= agility){
             return damage * 1.5;

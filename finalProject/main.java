@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 class main{  
     public static void main(String args[]){  
-        private String[][] environment = new String[4][4];
+        String[][] environment = new String[4][4];
         Scanner choice = new Scanner(System.in);
         System.out.println("Type one of the following characters to select: Barbarian, Sorcerer, or Rogue");
         System.out.println("For more details on each character, type: Stats");
@@ -16,8 +16,8 @@ class main{
             System.out.println("----------");
             System.out.println("Rogue:");
             System.out.println("Strenghs - Agility");
-            System.out.println("Please select one of the characters:")
-            character - choice.nextLine();
+            System.out.println("Please select one of the characters:");
+            character = choice.nextLine();
         }
     }  
 }  
