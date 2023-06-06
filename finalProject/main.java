@@ -4,8 +4,8 @@ class main{
     public static void main(String args[]){  
         String[][] environment = new String[4][4];
         Scanner choice = new Scanner(System.in);
-        private String character;
-        private int talentPoints = 25;
+        String character;
+        int talentPoints = 25;
         System.out.println("Type one of the following characters to select: Barbarian, Sorcerer, or Rogue");
         System.out.println("For more details on each character, type: Stats");
         character = choice.nextLine();
@@ -23,28 +23,48 @@ class main{
             System.out.println(character + "selected.");
         }
 
+        Scanner points = new Scanner(System.in);
         while(talentPoints > 0){
             System.out.println("Please ration 25 talent points for " + character + "among the 5 categories (strength, agility, stamina, intelligence, spirit)");
             System.out.println("Determine the amount of talent points for strength");
-            String s = choice.nextLine();
+            int s = points.nextInt();
             talentPoints -= s;
-            if(talentPoints <= 0) continue;
+            if(talentPoints < 0){
+                System.out.println("Ran out of talent points.  Please reassign.");
+                talentPoints = 25;
+                continue;
+            }
             System.out.println("Determine the amount of talent points for agility:");
-            String a = choice.nextLine();
+            int a = points.nextInt();
             talentPoints -= a;
-            if(talentPoints <= 0) continue;
-            System.out.println("Determine the amount of talent points for stamina");
-            String st = choice.nextLine();
+            if(talentPoints < 0){
+                System.out.println("Ran out of talent points.  Please reassign.");
+                talentPoints = 25;
+                continue;
+            }            System.out.println("Determine the amount of talent points for stamina");
+            int st = points.nextInt();
             talentPoints -= st;
-            if(talentPoints <= 0) continue;
-            System.out.println("Determine the amount of talent points for intelligence");
-            String i = choice.nextLine();
+            if(talentPoints < 0){
+                System.out.println("Ran out of talent points.  Please reassign.");
+                talentPoints = 25;
+                continue;
+            }            System.out.println("Determine the amount of talent points for intelligence");
+            int i = points.nextInt();
             talentPoints -= i;
-            if(talentPoints <= 0) continue;
-            System.out.println("Determine the amount of talent points for spirit");
-            String sp = choice.nextLine();
+            if(talentPoints < 0){
+                System.out.println("Ran out of talent points.  Please reassign.");
+                talentPoints = 25;
+                continue;
+            }            System.out.println("Determine the amount of talent points for spirit");
+            int sp = points.nextInt();
             talentPoints -= sp;
-            if(talentPoints <= 0) continue;
+            if(talentPoints < 0){
+                System.out.println("Ran out of talent points.  Please reassign.");
+                talentPoints = 25;
+                continue;
+            }        
         }
+        choice.close();
+        points.close();
     }  
 }  
