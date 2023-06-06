@@ -28,6 +28,9 @@ public class barbarian{
         mana = intelligence * 5;
     }
 
+    private String printString(){
+        return("Strength" + strength + "\n" + "Agility" + agility + "\n" + "Stamina" + stamina + "\n" + "Intelligence" + intelligence + "\n" + "Spririt" + spirit);
+    }
     private double attack(){
         double damage;
         damage = strength + (int)Math.random()*2;
