@@ -3,7 +3,7 @@ import java.util.ArrayList;
 
 class main{  
     public static void main(String args[]){  
-        String[][] environment = new String[4][4];
+        String[][] environment = {{"-","-","-","-"},{"","","","M"},{"","","",""},{"","","M",""},{"M","","","M"},{"-","-","-","-"}};
         Scanner choice = new Scanner(System.in);
         String character;
         int talentPoints = 25;
@@ -12,6 +12,7 @@ class main{
         int st = 0;
         int i = 0;
         int sp = 0;
+        player play;
         barbarian playerB;
         sorcerer playerS;
         rogue playerR;
@@ -407,14 +408,130 @@ class main{
         if(character.equals("Barbarian")){
             playerB = new barbarian(s + strengthAdd, a + agilityAdd, st + staminaAdd, i + intelligenceAdd, sp + spiritAdd);
             System.out.println("Strength: " + playerB.strength + "\n" + "Agility: " + playerB.agility + "\n" + "Stamina: " + playerB.stamina + "\n" + "Intelligence: " + playerB.intelligence + "\n" + "Spririt: " + playerB.spirit);
+            play = new player(playerB);
         } else if(character.equals("Sorcerer")){
             playerS = new sorcerer(s + strengthAdd, a + agilityAdd, st + staminaAdd, i + intelligenceAdd, sp + spiritAdd);
             System.out.println("Strength: " + playerS.strength + "\n" + "Agility: " + playerS.agility + "\n" + "Stamina: " + playerS.stamina + "\n" + "Intelligence: " + playerS.intelligence + "\n" + "Spririt: " + playerS.spirit);
+            play = new player(playerS);
         } else {
             playerR = new rogue(s + strengthAdd, a + agilityAdd, st + staminaAdd, i + intelligenceAdd, sp + spiritAdd);
             System.out.println("Strength: " + playerR.strength + "\n" + "Agility: " + playerR.agility + "\n" + "Stamina: " + playerR.stamina + "\n" + "Intelligence: " + playerR.intelligence + "\n" + "Spririt: " + playerR.spirit);
+            play = new player(playerR);
         }
-        
+
+        playTheGame();
+
+        public void playTheGame(){
+            String move;
+            int xPos = 0;
+            int yPos = 1;
+            int monstersKilled;
+            monsters monster;
+
+            System.out.println("The game will now begin.  4 zombies will spawn at the beginning.  Once you beat all 4 monsters, you win.  Go directly next to a monster to engage in a fight.  P represents the player.  Monsters are represented by M and vary in 5 different difficulties.");
+            while(play.health < 0){
+                if(monstersKilled = 5){
+                    System.out.println("You won the game!! Congragulations!");
+                    break;
+                }
+                while(!(play.inFight)){
+                    environment[yPos][xPos] = "P";
+                    if(environment(yPos+1,xPos) != "" || environment(yPos-1,xPos) != "" || environment(yPos,xPos+1) != "" || environment(yPos,xPos-1) != ""){
+                        play.inFight = true;
+                        continue;
+                    }
+                    environment[xPos][yPos] = "P";
+                    for(int r = 0; r < environment.length; r++){
+                        for(int c = 0; c < environment[0].length; c++){
+                            System.out.print(environment[r][c]);
+                    }
+                    System.out.println();
+                    }
+                    System.out.println("Type N for (N)orth, W for (W)est, E for (E)ast, and S for (S)outh.");
+                    move = choice.nextLine();
+                    if(move.equals("N")){
+                        yPos++;
+                        increaseMana();
+                    } else if (move.equals("W")){
+                        xPos--;
+                        increaseMana();
+                    } else if (move.equals("E")){
+                        xPos++;
+                        increaseMana();
+                    } else if (move.equals("S")){
+                        yPos--;
+                        increaseMana();
+                    } else {
+                        System.out.println("Error.  Retry.");
+                        continue;
+                    }
+                }
+                while(inFight){
+                    createMonsters();
+                    int monsterDamage = (int)Math.random()*monster.diff + monster.minDamage;
+                    double playerDamage;
+                    String movement;
+                    environment[yPos][xPos] = "P";
+                    for(int r = 0; r < environment.length; r++){
+                        for(int c = 0; c < environment[0].length; c++){
+                            System.out.print(environment[r][c]);
+                    }
+                    System.out.println();
+                    }
+                    System.out.println("Player Health: " + play.health)
+                    System.out.println("Monster Health: " + monsters.health);
+                    System.out.println("Monster deals: " + monsterDamage);
+                    System.out.println("Choose a move: (A)ttack, (D)odge, (C)ast a spell, or attempt to (R)un");
+                    movement = choice.nextLine();
+                    if(movement.equals("A")){
+                        playerDamage = play.attack();
+                        System.out.println("Player deals: " + playerDamage)
+                        monsters.health -= playerDamage;
+                    } else if (movement.equals("D")){
+                        if(play.dodge()){
+                            System.out.println("Monster's attack negated.");
+                        } else {
+                            System.out.println("Player failed to dodge.");
+                            play.health -= monsterDamage;
+                        }
+                    } else if (movement.equals("C")){
+                        playerDamage = play.castASpell();
+                        System.out.println("Player deals: " + playerDamage)
+                        monsters.health -= playerDamage;
+                    } else if ( movement.equals("R")){
+                        if(play.run()){
+                            System.out.println("Player succesfully ran.");
+                            play.inFight = false;
+                        } else {
+                            System.out.println("Player failed to run.");
+                            play.inFight = true;
+                        }
+                    }
+                    if(monsters.health < 0){
+                        System.out.println("Monster killed.");
+                        monstersKilled++;
+                        play.inFight = false;
+                    }
+                }
+            }
+        }
+
+        private void createMonsters(int x, int y){
+            private monsterNumber = Math.random()*20;
+            if(monsterNumber < 10){
+                monsters monster = new monsters(10.0, 5, 5, x, y);
+            } else if (monsterNumber < 15){
+                monsters monster = new monsters(15.0, 7, 5, x, y);
+            } else if (monsterNumber < 18){
+                monsters monster = new monsters(20.0, 10, 5, x, y);
+            } else if (monsterNumber < 19){
+                monsters monster = new monsters(25.0, 12, 5, x, y);
+            } else if (monsterNumber < 20){
+                monsters monster = new monsters(30.0, 15, 5, x, y);
+            } else{
+                System.out.println("error");
+            }
+        }
         choice.close();
         points.close();
     }  
