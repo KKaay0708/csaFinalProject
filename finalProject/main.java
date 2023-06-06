@@ -465,7 +465,7 @@ class main{
 
             System.out.println("The game will now begin.  4 zombies will spawn at the beginning.  Once you beat all 4 monsters, you win.  Go directly next to a monster to engage in a fight.  P represents the player.  Monsters are represented by M and vary in 5 different difficulties.");
             while(play.health > 0){
-                if(monstersKilled == 5){
+                if(monstersKilled == 4){
                     System.out.println("You won the game!! Congragulations!");
                     break;
                 }
@@ -618,16 +618,17 @@ class main{
                             play.inFight = true;
                         }
                     }
+                    if(play.health < 0){
+                        System.out.println("You have died.");
+                        play.inFight = false;
+                        continue;
+                    }
+
                     if(monsterHealth <= 0){
                         System.out.println("Monster killed.");
                         monstersKilled++;
                         play.inFight = false;
                         environment[monY][monX] = "0";
-                    }
-                    if(play.health < 0){
-                        System.out.println("You have died.");
-                        play.inFight = false;
-                        continue;
                     }
                 }
             }
