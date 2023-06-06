@@ -64,6 +64,16 @@ class main{
                 continue;
             }        
         }
+
+        if(character.equals("Barbarian")){
+            Barbarian player = new Barbarian(s, a, st, i, sp);
+        } else if(character.equals("Sorcerer")){
+            Sorcerer player = new Sorcerer(s, a, st, i, sp);
+        } else if(character.equals("Rogue"))
+            Rogue player = new Rogue(s, a, st, i, sp);
+        System.out.println(character);
+        player.toString();
+
         choice.close();
         points.close();
     }  
