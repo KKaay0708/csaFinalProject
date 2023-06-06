@@ -1,14 +1,14 @@
 import java.lang.Math.*;
 
 public class barbarian{
-    private int strength = 3;
-    private int agility = 1;
-    private int stamina = 4;
-    private int intelligence = 1;
-    private int spirit = 1;
-    private int health;
-    private int gold = 1000;
-    private int mana;
+    public int strength = 3;
+    public int agility = 1;
+    public int stamina = 4;
+    public int intelligence = 1;
+    public int spirit = 1;
+    public int health;
+    public int gold = 1000;
+    public int mana;
 
     public barbarian(int s, int a, int st, int i, int sp){
         strength *= s;
@@ -28,9 +28,10 @@ public class barbarian{
         mana = intelligence * 5;
     }
 
-    private String printString(){
+    public String printString(){
         return("Strength" + strength + "\n" + "Agility" + agility + "\n" + "Stamina" + stamina + "\n" + "Intelligence" + intelligence + "\n" + "Spririt" + spirit);
     }
+
     private double attack(){
         double damage;
         damage = strength + (int)Math.random()*2;

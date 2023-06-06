@@ -1,14 +1,14 @@
 import java.lang.Math.*;
 
 public class sorcerer{
-    private int strength = 1;
-    private int agility = 2;
-    private int stamina = 1;
-    private int intelligence = 3;
-    private int spirit = 3;
-    private int health;
-    private int gold = 1000;
-    private int mana;
+    public int strength = 1;
+    public int agility = 2;
+    public int stamina = 1;
+    public int intelligence = 3;
+    public int spirit = 3;
+    public int health;
+    public int gold = 1000;
+    public int mana;
 
     public sorcerer(int s, int a, int st, int i, int sp){
         strength *= s;
@@ -26,6 +26,10 @@ public class sorcerer{
         spirit += sp;
         health = stamina * 5;
         mana = intelligence * 5;
+    }
+
+    public String printString(){
+        return("Strength" + strength + "\n" + "Agility" + agility + "\n" + "Stamina" + stamina + "\n" + "Intelligence" + intelligence + "\n" + "Spririt" + spirit);
     }
 
     private double attack(){

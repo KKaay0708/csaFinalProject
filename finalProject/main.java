@@ -6,6 +6,11 @@ class main{
         Scanner choice = new Scanner(System.in);
         String character;
         int talentPoints = 25;
+        int s = 0;
+        int a = 0;
+        int st = 0;
+        int i = 0;
+        int sp = 0;
         System.out.println("Type one of the following characters to select: Barbarian, Sorcerer, or Rogue");
         System.out.println("For more details on each character, type: Stats");
         character = choice.nextLine();
@@ -27,7 +32,7 @@ class main{
         while(talentPoints > 0){
             System.out.println("Please ration 25 talent points for " + character + "among the 5 categories (strength, agility, stamina, intelligence, spirit)");
             System.out.println("Determine the amount of talent points for strength");
-            int s = points.nextInt();
+            s = points.nextInt();
             talentPoints -= s;
             if(talentPoints < 0){
                 System.out.println("Ran out of talent points.  Please reassign.");
@@ -35,44 +40,48 @@ class main{
                 continue;
             }
             System.out.println("Determine the amount of talent points for agility:");
-            int a = points.nextInt();
+            a = points.nextInt();
             talentPoints -= a;
             if(talentPoints < 0){
                 System.out.println("Ran out of talent points.  Please reassign.");
                 talentPoints = 25;
                 continue;
             }            System.out.println("Determine the amount of talent points for stamina");
-            int st = points.nextInt();
+            st = points.nextInt();
             talentPoints -= st;
             if(talentPoints < 0){
                 System.out.println("Ran out of talent points.  Please reassign.");
                 talentPoints = 25;
                 continue;
             }            System.out.println("Determine the amount of talent points for intelligence");
-            int i = points.nextInt();
+            i = points.nextInt();
             talentPoints -= i;
             if(talentPoints < 0){
                 System.out.println("Ran out of talent points.  Please reassign.");
                 talentPoints = 25;
                 continue;
             }            System.out.println("Determine the amount of talent points for spirit");
-            int sp = points.nextInt();
+            sp = points.nextInt();
             talentPoints -= sp;
             if(talentPoints < 0){
                 System.out.println("Ran out of talent points.  Please reassign.");
                 talentPoints = 25;
                 continue;
             }        
+            talentPoints = 0;
         }
 
         if(character.equals("Barbarian")){
-            Barbarian player = new Barbarian(s, a, st, i, sp);
+            barbarian player = new barbarian(s, a, st, i, sp);
+            System.out.println("Strength: " + player.strength + "\n" + "Agility: " + player.agility + "\n" + "Stamina: " + player.stamina + "\n" + "Intelligence: " + player.intelligence + "\n" + "Spririt: " + player.spirit);
         } else if(character.equals("Sorcerer")){
-            Sorcerer player = new Sorcerer(s, a, st, i, sp);
-        } else if(character.equals("Rogue"))
-            Rogue player = new Rogue(s, a, st, i, sp);
+            sorcerer player = new sorcerer(s, a, st, i, sp);
+            player.printString();
+        } else {
+            rogue player = new rogue(s, a, st, i, sp);
+            player.printString();
+        }
         System.out.println(character);
-        player.toString();
 
         choice.close();
         points.close();
