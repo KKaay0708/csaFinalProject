@@ -247,7 +247,7 @@ class main{
                         System.out.println("Error.  Retry.");
                     }
                 } else if(addItem.contains("Head") && head){
-                    gold -= 600;
+                    gold -= 480;
                     if(gold >= 0){
                         items.add(addItem);
                         System.out.println("Gold Remaining: " + gold);
@@ -272,7 +272,7 @@ class main{
                         System.out.println("Error.  Retry.");
                     }
                 } else if(addItem.contains("Feet") && feet){
-                    gold -= 600;
+                    gold -= 520;
                     if(gold >= 0){
                         items.add(addItem);
                         System.out.println("Gold Remaining: " + gold);
@@ -288,69 +288,115 @@ class main{
                     System.out.println("Error.  Retry.");
                 }
             } else if (addItem.contains("Good") && good){
-                if((addItem.contains("Weapon") && weapon)||(addItem.contains("Head") && head)||(addItem.contains("Body") && body)||(addItem.contains("Feet") && feet)){
-                    good = false;
-                    gold -= 300;
+                if(addItem.contains("Weapon") && weapon){
+                    gold -= 320;
                     if(gold >= 0){
                         items.add(addItem);
                         System.out.println("Gold Remaining: " + gold);
                         System.out.println(addItem + " selected.");
+                        great = false;
+                        weapon = false;
+                        strengthAdd += 5;
                     } else{
                         System.out.println("Error.  Retry.");
                     }
-                } else {
-                    System.out.println("Error.  Retry.");
-                }
-                if(addItem.contains("Weapon")){
-                    weapon = false;
-                    strengthAdd += 5;
-                } else if(addItem.contains("Head")){
-                    head = false;
-                    staminaAdd += 3;
-                    intelligenceAdd += 2;
-                } else if(addItem.contains("Body")){
-                    body = false;
-                    staminaAdd += 5;
-                } else if(addItem.contains("Feet")){
-                    feet = false;
-                    agilityAdd += 4;
-                    spiritAdd += 1;
+                } else if(addItem.contains("Head") && head){
+                    gold -= 290;
+                    if(gold >= 0){
+                        items.add(addItem);
+                        System.out.println("Gold Remaining: " + gold);
+                        System.out.println(addItem + " selected.");
+                        great = false;
+                        head = false;
+                        staminaAdd += 3;
+                        intelligenceAdd += 2;
+                    } else{
+                        System.out.println("Error.  Retry.");
+                    }
+                } else if(addItem.contains("Body") && body){
+                    gold -= 330;
+                    if(gold >= 0){
+                        items.add(addItem);
+                        System.out.println("Gold Remaining: " + gold);
+                        System.out.println(addItem + " selected.");
+                        great = false;
+                        body = false;
+                        staminaAdd += 5;
+                    } else{
+                        System.out.println("Error.  Retry.");
+                    }
+                } else if(addItem.contains("Feet") && feet){
+                    gold -= 270;
+                    if(gold >= 0){
+                        items.add(addItem);
+                        System.out.println("Gold Remaining: " + gold);
+                        System.out.println(addItem + " selected.");
+                        great = false;
+                        feet = false;
+                        agilityAdd += 4;
+                        spiritAdd += 1;
+                    } else{
+                        System.out.println("Error.  Retry.");
+                    }
                 } else {
                     System.out.println("Error.  Retry.");
                 }
             } else if (addItem.contains("Okay") && okay){
-                if((addItem.contains("Weapon") && weapon)||(addItem.contains("Head") && head)||(addItem.contains("Body") && body)||(addItem.contains("Feet") && feet)){
-                    okay = false;
-                    gold -= 200;
+                if(addItem.contains("Weapon") && weapon){
+                    gold -= 250;
                     if(gold >= 0){
                         items.add(addItem);
                         System.out.println("Gold Remaining: " + gold);
                         System.out.println(addItem + " selected.");
+                        great = false;
+                        weapon = false;
+                        strengthAdd += 2;
+                    } else{
+                        System.out.println("Error.  Retry.");
+                    }
+                } else if(addItem.contains("Head") && head){
+                    gold -= 220;
+                    if(gold >= 0){
+                        items.add(addItem);
+                        System.out.println("Gold Remaining: " + gold);
+                        System.out.println(addItem + " selected.");
+                        great = false;
+                        head = false;
+                        staminaAdd += 1;
+                        intelligenceAdd += 1;
+                    } else{
+                        System.out.println("Error.  Retry.");
+                    }
+                } else if(addItem.contains("Body") && body){
+                    gold -= 220;
+                    if(gold >= 0){
+                        items.add(addItem);
+                        System.out.println("Gold Remaining: " + gold);
+                        System.out.println(addItem + " selected.");
+                        great = false;
+                        body = false;
+                        staminaAdd += 2;
+                    } else{
+                        System.out.println("Error.  Retry.");
+                    }
+                } else if(addItem.contains("Feet") && feet){
+                    gold -= 210;
+                    if(gold >= 0){
+                        items.add(addItem);
+                        System.out.println("Gold Remaining: " + gold);
+                        System.out.println(addItem + " selected.");
+                        great = false;
+                        feet = false;
+                        agilityAdd += 1;
+                        spiritAdd += 1;
                     } else{
                         System.out.println("Error.  Retry.");
                     }
                 } else {
-                    System.out.println("Type invalid.");
-                }
-                if(addItem.contains("Weapon")){
-                    weapon = false;
-                    strengthAdd += 2;
-                } else if(addItem.contains("Head")){
-                    head = false;
-                    staminaAdd += 1;
-                    intelligenceAdd += 1;
-                } else if(addItem.contains("Body")){
-                    body = false;
-                    staminaAdd += 2;
-                } else if(addItem.contains("Feet")){
-                    feet = false;
-                    agilityAdd += 1;
-                    spiritAdd += 1;
-                } else {
                     System.out.println("Error.  Retry.");
                 }
             } else if(addItem.equals("None")){
-                System.out.println("AHHH");
+                break;
             }else {
                 System.out.println("Error. Retry.");
             }
