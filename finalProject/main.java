@@ -5,7 +5,7 @@ class main{
     public static void main(String args[]){  
         String[][] environment = {{"-", "-", "-", "-"},{"0","0","0","M"},{"0","0","0","0"},{"0","0","M","0"},{"M","0","0","M"},{"-", "-", "-", "-"}};
         Scanner choice = new Scanner(System.in);
-        String character;
+        String character = "";
         int talentPoints = 25;
         int s = 0;
         int a = 0;
@@ -21,29 +21,45 @@ class main{
         int staminaAdd = 0;
         int intelligenceAdd = 0;
         int spiritAdd = 0;
-        System.out.println("Type one of the following characters to select: Barbarian, Sorcerer, or Rogue");
-        System.out.println("For more details on each character, type: Stats");
-        character = choice.nextLine();
-        if(character.equals("Stats")){
-            System.out.println("Barbarian:");
-            System.out.println("strength = 3, agility = 1, stamina = 4, intelligence = 1, spirit = 1");
-            System.out.println("----------");
-            System.out.println("Sorcerer:");
-            System.out.println("strength = 1, agility = 2, stamina = 1, intelligence = 3, spirit = 3");
-            System.out.println("----------");
-            System.out.println("Rogue:");
-            System.out.println("strength = 1, agility = 4, stamina = 2, intelligence = 2, spirit = 1;");
-            System.out.println("Please select one of the characters:");
-            character = choice.nextLine();
-            System.out.println(character + "selected.");
+        String tentative = "";
+
+        while(character.equals("")){
+            System.out.println("Type one of the following characters to select: Barbarian, Sorcerer, or Rogue");
+            System.out.println("For more details on each character, type: Stats");
+            tentative = choice.nextLine();
+            if(character.equals("Stats")){
+                System.out.println("Barbarian:");
+                System.out.println("strength = 3, agility = 1, stamina = 4, intelligence = 1, spirit = 1");
+                System.out.println("----------");
+                System.out.println("Sorcerer:");
+                System.out.println("strength = 1, agility = 2, stamina = 1, intelligence = 3, spirit = 3");
+                System.out.println("----------");
+                System.out.println("Rogue:");
+                System.out.println("strength = 1, agility = 4, stamina = 2, intelligence = 2, spirit = 1;");
+                System.out.println("Please select one of the characters:");
+                tentative = choice.nextLine();
+            }
+            if(tentative.equals("Barbarian") || tentative.equals("Sorcerer") || tentative.equals("Rogue")){
+                character = tentative;
+                System.out.println(character + " selected.");
+            } else {
+                    System.out.println("Error. Retry.");
+                    continue;
+            }
+            
         }
 
         Scanner points = new Scanner(System.in);
         while(talentPoints > 0){
-            System.out.println("Please ration 25 talent points for " + character + " among the 5 categories (strength, agility, stamina, intelligence, spirit)");
+            System.out.println("Please ration 25 talent points for " + character + " among the 5 categories (strength, agility, stamina, intelligence, spirit).  Must be an integer.");
             System.out.println("Determine the amount of talent points for strength:");
             s = points.nextInt();
-            talentPoints -= s;
+            if(s>0){
+                talentPoints -= s;
+            } else {
+                System.out.println("Error.  Retry.");
+                continue;
+            }
             if(talentPoints < 0){
                 System.out.println("Ran out of talent points.  Please reassign.");
                 talentPoints = 25;
@@ -51,28 +67,48 @@ class main{
             }
             System.out.println("Determine the amount of talent points for agility:");
             a = points.nextInt();
-            talentPoints -= a;
+            if(a>0){
+                talentPoints -= s;
+            } else {
+                System.out.println("Error.  Retry.");
+                continue;
+            }
             if(talentPoints < 0){
                 System.out.println("Ran out of talent points.  Please reassign.");
                 talentPoints = 25;
                 continue;
             }            System.out.println("Determine the amount of talent points for stamina:");
             st = points.nextInt();
-            talentPoints -= st;
+            if(st>0){
+                talentPoints -= s;
+            } else {
+                System.out.println("Error.  Retry.");
+                continue;
+            }
             if(talentPoints < 0){
                 System.out.println("Ran out of talent points.  Please reassign.");
                 talentPoints = 25;
                 continue;
             }            System.out.println("Determine the amount of talent points for intelligence:");
             i = points.nextInt();
-            talentPoints -= i;
+            if(i>0){
+                talentPoints -= s;
+            } else {
+                System.out.println("Error.  Retry.");
+                continue;
+            }
             if(talentPoints < 0){
                 System.out.println("Ran out of talent points.  Please reassign.");
                 talentPoints = 25;
                 continue;
             }            System.out.println("Determine the amount of talent points for spirit:");
             sp = points.nextInt();
-            talentPoints -= sp;
+            if(sp>0){
+                talentPoints -= s;
+            } else {
+                System.out.println("Error.  Retry.");
+                continue;
+            }
             if(talentPoints < 0){
                 System.out.println("Ran out of talent points.  Please reassign.");
                 talentPoints = 25;
@@ -595,9 +631,7 @@ class main{
                     }
                 }
             }
-            
-     
-        choice.close();
-        points.close();
+            choice.close();
+            points.close();
+        }
     }
-}  
