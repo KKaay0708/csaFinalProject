@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.ArrayList;
 
 class main{  
     public static void main(String args[]){  
@@ -10,7 +11,7 @@ class main{
         int a = 0;
         int st = 0;
         int i = 0;
-        int sp = 0
+        int sp = 0;
         barbarian playerB;
         sorcerer playerS;
         rogue playerR;
@@ -74,185 +75,221 @@ class main{
             talentPoints = 0;
         }
 
-        System.out.println("You are given 1000 gold.  Please purchase three items.  You may only purchase one great item, one good item, and one okay item.");
+        System.out.println("You are given 1000 gold.  Please purchase three items.  You may only purchase one great item, one good item, and one okay item.  Please enter the entire item.  For example, \"Weapon: Great Axe - 500\".");
         Boolean weapon = true;
         Boolean head = true;
         Boolean body = true;
         Boolean feet = true;
         Boolean great = true;
         Boolean good = true;
-        Boolean ok = true;
+        Boolean okay = true;
         int gold = 1000;
-        String char;
-        String[] items;
+        ArrayList<String> items = new ArrayList<String>();
         String addItem;
 
         while((weapon || head || body || feet) && (gold > 0)&& (great || good || okay)){
-            if(char.equals("Barbarian")){
+            if(character.equals("Barbarian")){
                 if(weapon){
                     if(great){
-                        System.out.println("Great Axe - 500");
+                        System.out.println("Weapon: Great Axe - 500");
                     }
                     if (good){
-                        System.out.println("Good Axe - 300");
+                        System.out.println("Weapon: Good Axe - 300");
                     }
-                    if (ok){
-                        System.out.println("Okay Axe- 200");
+                    if (okay){
+                        System.out.println("Weapon: Okay Axe- 200");
                     }
                 }
                 if(head){
                     if(great){
-                        System.out.println("Great Helment - 500");
+                        System.out.println("Head: Great Helment - 500");
                     }
                     if (good){
-                        System.out.println("Good Helment - 300");
+                        System.out.println("Head: Good Helment - 300");
                     }
-                    if (ok){
-                        System.out.println("Okay Helment - 200");
+                    if (okay){
+                        System.out.println("Head: Okay Helment - 200");
                     }
                 }
                 if(body){
                     if(great){
-                        System.out.println("Great Chestplate - 500");
+                        System.out.println("Body: Great Chestplate - 500");
                     }
                     if (good){
-                        System.out.println("Good Chestplate - 300");
+                        System.out.println("Body: Good Chestplate - 300");
                     }
-                    if (ok){
-                        System.out.println("Okay Chestplate - 200");
+                    if (okay){
+                        System.out.println("Body: Okay Chestplate - 200");
                     }
                 }
                 if(feet){
                     if(great){
-                        System.out.println("Great Greave - 500");
+                        System.out.println("Feet: Great Greave - 500");
                     }
                     if (good){
-                        System.out.println("Good Greave - 300");
+                        System.out.println("Feet: Good Greave - 300");
                     }
-                    if (ok){
-                        System.out.println("Okay Greave - 200");
+                    if (okay){
+                        System.out.println("Feet: Okay Greave - 200");
                     }
                 }
             }
-            if(char.equals("Sorcerer")){
+            if(character.equals("Sorcerer")){
                 if(weapon){
                     if(great){
-                        System.out.println("Great Wand - 500");
+                        System.out.println("Weapon: Great Wand - 500");
                     }
                     if (good){
-                        System.out.println("Good Wand - 300");
+                        System.out.println("Weapon: Good Wand - 300");
                     }
-                    if (ok){
-                        System.out.println("Okay Wand - 200");
+                    if (okay){
+                        System.out.println("Weapon: Okay Wand - 200");
                     }
                 }
                 if(head){
                     if(great){
-                        System.out.println("Great Crown - 500");
+                        System.out.println("Head: Great Crown - 500");
                     }
                     if (good){
-                        System.out.println("Good Crown - 300");
+                        System.out.println("Head: Good Crown - 300");
                     }
-                    if (ok){
-                        System.out.println("Okay Crown - 200");
+                    if (okay){
+                        System.out.println("Head: Okay Crown - 200");
                     }
                 }
                 if(body){
                     if(great){
-                        System.out.println("Great Cloak - 500");
+                        System.out.println("Body: Great Cloak - 500");
                     }
                     if (good){
-                        System.out.println("Good Cloak - 300");
+                        System.out.println("Body: Good Cloak - 300");
                     }
-                    if (ok){
-                        System.out.println("Okay Cloak - 200");
+                    if (okay){
+                        System.out.println("Body: Okay Cloak - 200");
                     }
                 }
                 if(feet){
                     if(great){
-                        System.out.println("Great Shoes - 500");
+                        System.out.println("Feet: Great Shoes - 500");
                     }
                     if (good){
-                        System.out.println("Good Shoes - 300");
+                        System.out.println("Feet: Good Shoes - 300");
                     }
-                    if (ok){
-                        System.out.println("Okay Shoes - 200");
+                    if (okay){
+                        System.out.println("Feet: Okay Shoes - 200");
                     }
                 }
             }
-            if(char.equals("Rogue")){
+            if(character.equals("Rogue")){
                 if(weapon){
                     if(great){
-                        System.out.println("Great Dagger - 500");
+                        System.out.println("Weapon: Great Dagger - 500");
                     }
                     if (good){
-                        System.out.println("Good Dagger - 300");
+                        System.out.println("Weapon: Good Dagger - 300");
                     }
-                    if (ok){
-                        System.out.println("Okay Dagger - 200");
+                    if (okay){
+                        System.out.println("Weapon: Okay Dagger - 200");
                     }
                 }
                 if(head){
                     if(great){
-                        System.out.println("Great Hood - 500");
+                        System.out.println("Head: Great Hood - 500");
                     }
                     if (good){
-                        System.out.println("Good Hood - 300");
+                        System.out.println("Head: Good Hood - 300");
                     }
-                    if (ok){
-                        System.out.println("Okay Hood - 200");
+                    if (okay){
+                        System.out.println("Head: Okay Hood - 200");
                     }
                 }
                 if(body){
                     if(great){
-                        System.out.println("Great Cape - 500");
+                        System.out.println("Body: Great Cape - 500");
                     }
                     if (good){
-                        System.out.println("Good Cape - 300");
+                        System.out.println("Body: Good Cape - 300");
                     }
-                    if (ok){
-                        System.out.println("Okay Cape - 200");
+                    if (okay){
+                        System.out.println("Body: Okay Cape - 200");
                     }
                 }
                 if(feet){
                     if(great){
-                        System.out.println("Great Boots - 500");
+                        System.out.println("Feet: Great Boots - 500");
                     }
                     if (good){
-                        System.out.println("Good Boots - 300");
+                        System.out.println("Feet: Good Boots - 300");
                     }
-                    if (ok){
-                        System.out.println("Okay Boots - 200");
+                    if (okay){
+                        System.out.println("Feet: Okay Boots - 200");
                     }
                 }
             }
             addItem = choice.nextLine();
             if(addItem.contains("Great") && great){
-                if((addItem.contains("weapon") && weapon)||(addItem.contains("head") && head)||(addItem.contains("body") && body)||(addItem.contains("feet") && feet)){
+                if((addItem.contains("Weapon") && weapon)||(addItem.contains("Head") && head)||(addItem.contains("Body") && body)||(addItem.contains("Feet") && feet)){
                     great = false;
                     gold -= 500;
                     items.add(addItem);
+                    System.out.println(addItem + "selected.");
                 } else {
                     System.out.println("Item invalid.  Please re-enter.");
                 }
+                if(addItem.contains("Weapon")){
+                    weapon = false;
+                } else if(addItem.contains("Head")){
+                    head = false;
+                } else if(addItem.contains("Body")){
+                    body = false;
+                } else if(addItem.contains("Feet")){
+                    feet = false;
+                } else {
+                    System.out.println("Error");
+                }
             } else if (addItem.contains("Good") && good){
-                if((addItem.contains("weapon") && weapon)||(addItem.contains("head") && head)||(addItem.contains("body") && body)||(addItem.contains("feet") && feet)){
+                if((addItem.contains("Weapon") && weapon)||(addItem.contains("Head") && head)||(addItem.contains("Body") && body)||(addItem.contains("Feet") && feet)){
                     good = false;
                     gold -= 300;
                     items.add(addItem);
+                    System.out.println(addItem + "selected.");
+
                 } else {
                     System.out.println("Item invalid.  Please re-enter.");
                 }
+                if(addItem.contains("Weapon")){
+                    weapon = false;
+                } else if(addItem.contains("Head")){
+                    head = false;
+                } else if(addItem.contains("Body")){
+                    body = false;
+                } else if(addItem.contains("Feet")){
+                    feet = false;
+                } else {
+                    System.out.println("Error");
+                }
             } else if (addItem.contains("Okay") && okay){
-                if((addItem.contains("weapon") && weapon)||(addItem.contains("head") && head)||(addItem.contains("body") && body)||(addItem.contains("feet") && feet)){
+                if((addItem.contains("Weapon") && weapon)||(addItem.contains("Head") && head)||(addItem.contains("Body") && body)||(addItem.contains("Feet") && feet)){
                     okay = false;
                     gold -= 200;
                     items.add(addItem);
+                    System.out.println(addItem + " selected.");
                 } else {
-                    System.out.println("Item invalid.  Please re-enter.");
+                    System.out.println("Type invalid.");
                 }
             } else {
-                System.out.println("Item invalid.  Please re-enter.");
+                System.out.println("Level invalid.");
+            }
+            if(addItem.contains("Weapon")){
+                weapon = false;
+            } else if(addItem.contains("Head")){
+                head = false;
+            } else if(addItem.contains("Body")){
+                body = false;
+            } else if(addItem.contains("Feet")){
+                feet = false;
+            } else {
+                System.out.println("Error");
             }
         }
         System.out.println("Item Choices: " + items);
