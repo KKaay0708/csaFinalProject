@@ -38,7 +38,7 @@ public class player{
     
     public double attack(){
         double damage = strength *2;
-        if((int)Math.random()*55 <= agility){
+        if((int)(Math.random()*55) <= agility){
             return damage * 1.5;
         } else {
             return damage;
@@ -47,7 +47,7 @@ public class player{
     }
     
     public boolean dodge(){
-        if(Math.random()*55 <= agility){
+        if((int)(Math.random()*55) <= agility){
             return true;
         } else {
             return false;
@@ -60,7 +60,7 @@ public class player{
     }
     
     public Boolean run(){
-        if(((int)Math.random()*2+1) == 1){
+        if(((int)(Math.random()*2+1)) == 1){
             return true;
         } else {
             return false;

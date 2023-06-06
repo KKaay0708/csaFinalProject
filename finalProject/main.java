@@ -573,6 +573,10 @@ class main{
                         if(play.run()){
                             System.out.println("Player succesfully ran.");
                             play.inFight = false;
+                            environment[yPos][xPos] = "0";
+                            xPos = 0;
+                            yPos = 1;
+                            environment[yPos][xPos] = "P";
                         } else {
                             System.out.println("Player failed to run.");
                             play.inFight = true;
@@ -586,6 +590,7 @@ class main{
                     }
                     if(play.health < 0){
                         System.out.println("You have died.");
+                        play.inFight = false;
                         continue;
                     }
                 }
