@@ -595,7 +595,4 @@ class main{
         choice.close();
         points.close();
     }
-
-    private static void playTheGame() {
-    }  
 }  
