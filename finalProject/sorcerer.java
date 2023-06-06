@@ -7,7 +7,6 @@ public class sorcerer{
     public int intelligence = 3;
     public int spirit = 3;
     public int health;
-    public int gold = 1000;
     public int mana;
 
     public sorcerer(int s, int a, int st, int i, int sp){
@@ -26,10 +25,6 @@ public class sorcerer{
         spirit += sp;
         health = stamina * 5;
         mana = intelligence * 5;
-    }
-
-    public String printString(){
-        return("Strength" + strength + "\n" + "Agility" + agility + "\n" + "Stamina" + stamina + "\n" + "Intelligence" + intelligence + "\n" + "Spririt" + spirit);
     }
 
     private double attack(){

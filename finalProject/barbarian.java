@@ -7,7 +7,6 @@ public class barbarian{
     public int intelligence = 1;
     public int spirit = 1;
     public int health;
-    public int gold = 1000;
     public int mana;
 
     public barbarian(int s, int a, int st, int i, int sp){
@@ -26,10 +25,6 @@ public class barbarian{
         spirit += sp;
         health = stamina * 5;
         mana = intelligence * 5;
-    }
-
-    public String printString(){
-        return("Strength" + strength + "\n" + "Agility" + agility + "\n" + "Stamina" + stamina + "\n" + "Intelligence" + intelligence + "\n" + "Spririt" + spirit);
     }
 
     private double attack(){
