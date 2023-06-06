@@ -75,7 +75,7 @@ class main{
             talentPoints = 0;
         }
 
-        System.out.println("You are given 1000 gold.  Please purchase three items.  You may only purchase one great item, one good item, and one okay item.  Please enter the entire item.  For example, \"Weapon: Great Axe - 500\".");
+        System.out.println("You are given 1000 gold.  Please purchase three items.  You may only purchase one per item type (weapon, head, body, feet).  Please enter the entire item.  For example, \"Weapon: Great Axe\".");
         Boolean weapon = true;
         Boolean head = true;
         Boolean body = true;
@@ -87,163 +87,177 @@ class main{
         ArrayList<String> items = new ArrayList<String>();
         String addItem;
 
-        while((weapon || head || body || feet) && (gold > 0)&& (great || good || okay)){
+        while((weapon || head || body || feet) && (gold > 0) && (great || good || okay)){
             if(character.equals("Barbarian")){
                 if(weapon){
                     if(great){
-                        System.out.println("Weapon: Great Axe - 500");
+                        System.out.println("Weapon: Great Axe - (+ 10 Strength) $600");
                     }
                     if (good){
-                        System.out.println("Weapon: Good Axe - 300");
+                        System.out.println("Weapon: Good Axe - (+ 5 Strength) $320");
                     }
                     if (okay){
-                        System.out.println("Weapon: Okay Axe- 200");
+                        System.out.println("Weapon: Okay Axe- (+ 2 Strength) $210");
                     }
                 }
                 if(head){
                     if(great){
-                        System.out.println("Head: Great Helment - 500");
+                        System.out.println("Head: Great Helment - (+ 6 Stamina, + 4 Intelligence) $550");
                     }
                     if (good){
-                        System.out.println("Head: Good Helment - 300");
+                        System.out.println("Head: Good Helment - (+ 3 Stamina, + 2 Intelligence) $250");
                     }
                     if (okay){
-                        System.out.println("Head: Okay Helment - 200");
+                        System.out.println("Head: Okay Helment - (+ 1 Stamina, + 1 Intelligence) $200");
                     }
                 }
                 if(body){
                     if(great){
-                        System.out.println("Body: Great Chestplate - 500");
+                        System.out.println("Body: Great Chestplate - (+ 10 Stamina) $500");
                     }
                     if (good){
-                        System.out.println("Body: Good Chestplate - 300");
+                        System.out.println("Body: Good Chestplate - (+ 5 Stamina) $300");
                     }
                     if (okay){
-                        System.out.println("Body: Okay Chestplate - 200");
+                        System.out.println("Body: Okay Chestplate - (+ 2 Stamina) $200");
                     }
                 }
                 if(feet){
                     if(great){
-                        System.out.println("Feet: Great Greave - 500");
+                        System.out.println("Feet: Great Greave - (+ 8 Agility, + 2 Spirit) $500");
                     }
                     if (good){
-                        System.out.println("Feet: Good Greave - 300");
+                        System.out.println("Feet: Good Greave - (+ 4 Agility, + 1 Spirit) $300");
                     }
                     if (okay){
-                        System.out.println("Feet: Okay Greave - 200");
+                        System.out.println("Feet: Okay Greave - (+ 1 Agility, + 1 Spirit) $200");
                     }
                 }
             }
             if(character.equals("Sorcerer")){
                 if(weapon){
                     if(great){
-                        System.out.println("Weapon: Great Wand - 500");
+                        System.out.println("Weapon: Great Wand - (+ 10 Strength) $500");
                     }
                     if (good){
-                        System.out.println("Weapon: Good Wand - 300");
+                        System.out.println("Weapon: Good Wand - (+ 5 Strength) $300");
                     }
                     if (okay){
-                        System.out.println("Weapon: Okay Wand - 200");
+                        System.out.println("Weapon: Okay Wand - (+ 2 Strength) $200");
                     }
                 }
                 if(head){
                     if(great){
-                        System.out.println("Head: Great Crown - 500");
+                        System.out.println("Head: Great Crown - (+ 6 Stamina, + 4 Intelligence) $500");
                     }
                     if (good){
-                        System.out.println("Head: Good Crown - 300");
+                        System.out.println("Head: Good Crown - (+ 3 Stamina, + 2 Intelligence) $300");
                     }
                     if (okay){
-                        System.out.println("Head: Okay Crown - 200");
+                        System.out.println("Head: Okay Crown - (+ 1 Stamina, + 1 Intelligence) $200");
                     }
                 }
                 if(body){
                     if(great){
-                        System.out.println("Body: Great Cloak - 500");
+                        System.out.println("Body: Great Cloak - (+ 10 Stamina) $500");
                     }
                     if (good){
-                        System.out.println("Body: Good Cloak - 300");
+                        System.out.println("Body: Good Cloak - (+ 5 Stamina) $300");
                     }
                     if (okay){
-                        System.out.println("Body: Okay Cloak - 200");
+                        System.out.println("Body: Okay Cloak - (+ 2 Stamina) $200");
                     }
                 }
                 if(feet){
                     if(great){
-                        System.out.println("Feet: Great Shoes - 500");
+                        System.out.println("Feet: Great Shoes - (+ 8 Agility, + 2 Spirit) $500");
                     }
                     if (good){
-                        System.out.println("Feet: Good Shoes - 300");
+                        System.out.println("Feet: Good Shoes - (+ 4 Agility, + 1 Spirit) $300");
                     }
                     if (okay){
-                        System.out.println("Feet: Okay Shoes - 200");
+                        System.out.println("Feet: Okay Shoes - (+ 1 Agility, + 1 Spirit) $200");
                     }
                 }
             }
             if(character.equals("Rogue")){
                 if(weapon){
                     if(great){
-                        System.out.println("Weapon: Great Dagger - 500");
+                        System.out.println("Weapon: Great Dagger - (+ 10 Strength) $500");
                     }
                     if (good){
-                        System.out.println("Weapon: Good Dagger - 300");
+                        System.out.println("Weapon: Good Dagger - (+ 5 Strength) $300");
                     }
                     if (okay){
-                        System.out.println("Weapon: Okay Dagger - 200");
+                        System.out.println("Weapon: Okay Dagger - (+ 2 Strength) $200");
                     }
                 }
                 if(head){
                     if(great){
-                        System.out.println("Head: Great Hood - 500");
+                        System.out.println("Head: Great Hood - (+ 6 Stamina, + 4 Intelligence) $500");
                     }
                     if (good){
-                        System.out.println("Head: Good Hood - 300");
+                        System.out.println("Head: Good Hood - (+ 3 Stamina, + 2 Intelligence) $300");
                     }
                     if (okay){
-                        System.out.println("Head: Okay Hood - 200");
+                        System.out.println("Head: Okay Hood - (+ 1 Stamina, + 1 Intelligence) $200");
                     }
                 }
                 if(body){
                     if(great){
-                        System.out.println("Body: Great Cape - 500");
+                        System.out.println("Body: Great Cape - (+ 10 Stamina) $500");
                     }
                     if (good){
-                        System.out.println("Body: Good Cape - 300");
+                        System.out.println("Body: Good Cape - (+ 5 Stamina) $300");
                     }
                     if (okay){
-                        System.out.println("Body: Okay Cape - 200");
+                        System.out.println("Body: Okay Cape - (+ 2 Stamina) $200");
                     }
                 }
                 if(feet){
                     if(great){
-                        System.out.println("Feet: Great Boots - 500");
+                        System.out.println("Feet: Great Boots - (+ 8 Agility, + 2 Spirit) $500");
                     }
                     if (good){
-                        System.out.println("Feet: Good Boots - 300");
+                        System.out.println("Feet: Good Boots - (+ 4 Agility, + 1 Spirit) $300");
                     }
                     if (okay){
-                        System.out.println("Feet: Okay Boots - 200");
+                        System.out.println("Feet: Okay Boots - (+ 1 Agility, + 1 Spirit) $200");
                     }
                 }
             }
+
+            int strengthAdd;
+            int agilityAdd;
+            int staminaAdd;
+            int intelligenceAdd;
+            int spiritAdd;
+
             addItem = choice.nextLine();
             if(addItem.contains("Great") && great){
                 if((addItem.contains("Weapon") && weapon)||(addItem.contains("Head") && head)||(addItem.contains("Body") && body)||(addItem.contains("Feet") && feet)){
                     great = false;
                     gold -= 500;
                     items.add(addItem);
+                    System.out.println("Gold Remaining:")
                     System.out.println(addItem + "selected.");
                 } else {
                     System.out.println("Item invalid.  Please re-enter.");
                 }
                 if(addItem.contains("Weapon")){
                     weapon = false;
+                    strengthAdd += 10;
                 } else if(addItem.contains("Head")){
                     head = false;
+                    staminaAdd += 6;
+                    intelligenceAdd += 4;
                 } else if(addItem.contains("Body")){
                     body = false;
+                    staminaAdd += 10;
                 } else if(addItem.contains("Feet")){
                     feet = false;
+                    agilityAdd += 8;
+                    spiritAdd += 2;
                 } else {
                     System.out.println("Error");
                 }
@@ -253,18 +267,23 @@ class main{
                     gold -= 300;
                     items.add(addItem);
                     System.out.println(addItem + "selected.");
-
                 } else {
                     System.out.println("Item invalid.  Please re-enter.");
                 }
                 if(addItem.contains("Weapon")){
                     weapon = false;
+                    strengthAdd += 5;
                 } else if(addItem.contains("Head")){
                     head = false;
+                    staminaAdd += 3;
+                    intelligenceAdd += 2;
                 } else if(addItem.contains("Body")){
                     body = false;
+                    staminaAdd += 5;
                 } else if(addItem.contains("Feet")){
                     feet = false;
+                    agilityAdd += 4;
+                    spiritAdd += 1;
                 } else {
                     System.out.println("Error");
                 }
@@ -282,12 +301,18 @@ class main{
             }
             if(addItem.contains("Weapon")){
                 weapon = false;
+                strengthAdd += 2;
             } else if(addItem.contains("Head")){
                 head = false;
+                staminaAdd += 1;
+                intelligenceAdd += 1;
             } else if(addItem.contains("Body")){
                 body = false;
+                staminaAdd += 2;
             } else if(addItem.contains("Feet")){
                 feet = false;
+                agilityAdd += 1;
+                spiritAdd += 1;
             } else {
                 System.out.println("Error");
             }
@@ -296,13 +321,13 @@ class main{
 
         System.out.println("Character Stats:");
         if(character.equals("Barbarian")){
-            playerB = new barbarian(s, a, st, i, sp);
+            playerB = new barbarian(s + strengthAdd, a + agilityAdd, st + staminaAdd, i + intelligenceAdd, sp + spiritAdd);
             System.out.println("Strength: " + playerB.strength + "\n" + "Agility: " + playerB.agility + "\n" + "Stamina: " + playerB.stamina + "\n" + "Intelligence: " + playerB.intelligence + "\n" + "Spririt: " + playerB.spirit);
         } else if(character.equals("Sorcerer")){
-            playerS = new sorcerer(s, a, st, i, sp);
+            playerS = new sorcerer(s + strengthAdd, a + agilityAdd, st + staminaAdd, i + intelligenceAdd, sp + spiritAdd);
             System.out.println("Strength: " + playerS.strength + "\n" + "Agility: " + playerS.agility + "\n" + "Stamina: " + playerS.stamina + "\n" + "Intelligence: " + playerS.intelligence + "\n" + "Spririt: " + playerS.spirit);
         } else {
-            playerR = new rogue(s, a, st, i, sp);
+            playerR = new rogue(s + strengthAdd, a + agilityAdd, st + staminaAdd, i + intelligenceAdd, sp + spiritAdd);
             System.out.println("Strength: " + playerR.strength + "\n" + "Agility: " + playerR.agility + "\n" + "Stamina: " + playerR.stamina + "\n" + "Intelligence: " + playerR.intelligence + "\n" + "Spririt: " + playerR.spirit);
         }
         
