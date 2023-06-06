@@ -1,5 +1,3 @@
-import java.lang.Math.*;
-
 public class sorcerer{
     public int strength = 1;
     public int agility = 2;
@@ -15,7 +13,7 @@ public class sorcerer{
         stamina *= st;
         intelligence *= i;
         spirit *= sp;
-        health = stamina * 2;
+        health = stamina * 5;
         mana = intelligence * 2;
     }
 }

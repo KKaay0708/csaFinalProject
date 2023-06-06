@@ -1,5 +1,3 @@
-import java.lang.Math.*;
-
 public class barbarian{
     public int strength = 3;
     public int agility = 1;
@@ -15,7 +13,7 @@ public class barbarian{
         stamina *= st;
         intelligence *= i;
         spirit *= sp;
-        health = stamina * 2;
+        health = stamina * 5;
         mana = intelligence * 2;
     }
 

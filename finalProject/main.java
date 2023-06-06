@@ -3,7 +3,7 @@ import java.util.ArrayList;
 
 class main{  
     public static void main(String args[]){  
-        String[][] environment = {{"-","-","-","-"},{"","","","M"},{"","","",""},{"","","M",""},{"M","","","M"},{"-","-","-","-"}};
+        String[][] environment = {{"-", "-", "-", "-"},{"0","0","0","M"},{"0","0","0","0"},{"0","0","M","0"},{"M","0","0","M"},{"-", "-", "-", "-"}};
         Scanner choice = new Scanner(System.in);
         String character;
         int talentPoints = 25;
@@ -40,7 +40,7 @@ class main{
 
         Scanner points = new Scanner(System.in);
         while(talentPoints > 0){
-            System.out.println("Please ration 25 talent points for " + character + "among the 5 categories (strength, agility, stamina, intelligence, spirit)");
+            System.out.println("Please ration 25 talent points for " + character + " among the 5 categories (strength, agility, stamina, intelligence, spirit)");
             System.out.println("Determine the amount of talent points for strength");
             s = points.nextInt();
             talentPoints -= s;
@@ -295,7 +295,7 @@ class main{
                         items.add(addItem);
                         System.out.println("Gold Remaining: " + gold);
                         System.out.println(addItem + " selected.");
-                        great = false;
+                        good = false;
                         weapon = false;
                         strengthAdd += 5;
                     } else{
@@ -307,7 +307,7 @@ class main{
                         items.add(addItem);
                         System.out.println("Gold Remaining: " + gold);
                         System.out.println(addItem + " selected.");
-                        great = false;
+                        good = false;
                         head = false;
                         staminaAdd += 3;
                         intelligenceAdd += 2;
@@ -320,7 +320,7 @@ class main{
                         items.add(addItem);
                         System.out.println("Gold Remaining: " + gold);
                         System.out.println(addItem + " selected.");
-                        great = false;
+                        good = false;
                         body = false;
                         staminaAdd += 5;
                     } else{
@@ -332,7 +332,7 @@ class main{
                         items.add(addItem);
                         System.out.println("Gold Remaining: " + gold);
                         System.out.println(addItem + " selected.");
-                        great = false;
+                        good = false;
                         feet = false;
                         agilityAdd += 4;
                         spiritAdd += 1;
@@ -349,7 +349,7 @@ class main{
                         items.add(addItem);
                         System.out.println("Gold Remaining: " + gold);
                         System.out.println(addItem + " selected.");
-                        great = false;
+                        okay = false;
                         weapon = false;
                         strengthAdd += 2;
                     } else{
@@ -361,7 +361,7 @@ class main{
                         items.add(addItem);
                         System.out.println("Gold Remaining: " + gold);
                         System.out.println(addItem + " selected.");
-                        great = false;
+                        okay = false;
                         head = false;
                         staminaAdd += 1;
                         intelligenceAdd += 1;
@@ -374,7 +374,7 @@ class main{
                         items.add(addItem);
                         System.out.println("Gold Remaining: " + gold);
                         System.out.println(addItem + " selected.");
-                        great = false;
+                        okay = false;
                         body = false;
                         staminaAdd += 2;
                     } else{
@@ -386,7 +386,7 @@ class main{
                         items.add(addItem);
                         System.out.println("Gold Remaining: " + gold);
                         System.out.println(addItem + " selected.");
-                        great = false;
+                        okay = false;
                         feet = false;
                         agilityAdd += 1;
                         spiritAdd += 1;
@@ -407,40 +407,71 @@ class main{
         System.out.println("Character Stats:");
         if(character.equals("Barbarian")){
             playerB = new barbarian(s + strengthAdd, a + agilityAdd, st + staminaAdd, i + intelligenceAdd, sp + spiritAdd);
-            System.out.println("Strength: " + playerB.strength + "\n" + "Agility: " + playerB.agility + "\n" + "Stamina: " + playerB.stamina + "\n" + "Intelligence: " + playerB.intelligence + "\n" + "Spririt: " + playerB.spirit);
             play = new player(playerB);
+            System.out.println("Strength: " + play.strength + "\n" + "Agility: " + play.agility + "\n" + "Stamina: " + play.stamina + "\n" + "Intelligence: " + play.intelligence + "\n" + "Spririt: " + play.spirit + "\n" + "Health: " + play.health + "\n" + "Mana: " + play.mana);
         } else if(character.equals("Sorcerer")){
             playerS = new sorcerer(s + strengthAdd, a + agilityAdd, st + staminaAdd, i + intelligenceAdd, sp + spiritAdd);
-            System.out.println("Strength: " + playerS.strength + "\n" + "Agility: " + playerS.agility + "\n" + "Stamina: " + playerS.stamina + "\n" + "Intelligence: " + playerS.intelligence + "\n" + "Spririt: " + playerS.spirit);
             play = new player(playerS);
+            System.out.println("Strength: " + play.strength + "\n" + "Agility: " + play.agility + "\n" + "Stamina: " + play.stamina + "\n" + "Intelligence: " + play.intelligence + "\n" + "Spririt: " + play.spirit + "\n" + "Health: " + play.health + "\n" + "Mana: " + play.mana);
         } else {
             playerR = new rogue(s + strengthAdd, a + agilityAdd, st + staminaAdd, i + intelligenceAdd, sp + spiritAdd);
-            System.out.println("Strength: " + playerR.strength + "\n" + "Agility: " + playerR.agility + "\n" + "Stamina: " + playerR.stamina + "\n" + "Intelligence: " + playerR.intelligence + "\n" + "Spririt: " + playerR.spirit);
             play = new player(playerR);
+            System.out.println("Strength: " + play.strength + "\n" + "Agility: " + play.agility + "\n" + "Stamina: " + play.stamina + "\n" + "Intelligence: " + play.intelligence + "\n" + "Spririt: " + play.spirit + "\n" + "Health: " + play.health + "\n" + "Mana: " + play.mana);
         }
 
-        playTheGame();
-
-        public void playTheGame(){
             String move;
             int xPos = 0;
             int yPos = 1;
-            int monstersKilled;
-            monsters monster;
+            int monX = 0;
+            int monY = 0;
+            int monstersKilled = 0;
+            monsters monster = new monsters();
 
             System.out.println("The game will now begin.  4 zombies will spawn at the beginning.  Once you beat all 4 monsters, you win.  Go directly next to a monster to engage in a fight.  P represents the player.  Monsters are represented by M and vary in 5 different difficulties.");
-            while(play.health < 0){
-                if(monstersKilled = 5){
+            while(play.health > 0){
+                if(monstersKilled == 5){
                     System.out.println("You won the game!! Congragulations!");
                     break;
                 }
-                while(!(play.inFight)){
+                while(play.inFight == false){
                     environment[yPos][xPos] = "P";
-                    if(environment(yPos+1,xPos) != "" || environment(yPos-1,xPos) != "" || environment(yPos,xPos+1) != "" || environment(yPos,xPos-1) != ""){
-                        play.inFight = true;
-                        continue;
+                    if(yPos > 0){
+                        if(environment[yPos-1][xPos].equals("M")){
+                            play.inFight = true;
+                            System.out.println("Monster found!");
+                            monY = yPos-1;
+                            monX = xPos;
+                            continue;
+                        }
                     }
-                    environment[xPos][yPos] = "P";
+                    if(yPos < 4){
+                        if(environment[yPos+1][xPos].equals("M")){
+                            play.inFight = true;
+                            System.out.println("Monster found!");
+                            monY = yPos+1;
+                            monX = xPos;
+                            continue;
+                        }
+                    }
+                    if(xPos > 0){
+                        if(environment[yPos][xPos-1].equals("M")){
+                            play.inFight = true;
+                            System.out.println("Monster found!");
+                            monY = yPos;
+                            monX = xPos-1;
+                            continue;
+                        }
+                    }
+                    if(xPos < 3){
+                        if(environment[yPos][xPos+1].equals("M")){
+                            play.inFight = true;
+                            System.out.println("Monster found!");
+                            monY = yPos;
+                            monX = xPos+1;
+                            continue;
+                        }
+                    }
+
                     for(int r = 0; r < environment.length; r++){
                         for(int c = 0; c < environment[0].length; c++){
                             System.out.print(environment[r][c]);
@@ -450,26 +481,61 @@ class main{
                     System.out.println("Type N for (N)orth, W for (W)est, E for (E)ast, and S for (S)outh.");
                     move = choice.nextLine();
                     if(move.equals("N")){
-                        yPos++;
-                        increaseMana();
+                        if(yPos>1){
+                            environment[yPos][xPos] = "0";
+                            yPos--;
+                            play.increaseMana();
+                        } else {
+                            System.out.println("Out of Bounds.");
+                        }
                     } else if (move.equals("W")){
-                        xPos--;
-                        increaseMana();
+                        if(xPos>0){
+                            environment[yPos][xPos] = "0";
+                            xPos--;
+                            play.increaseMana();
+                        } else {
+                            System.out.println("Out of Bounds.");
+                        }
                     } else if (move.equals("E")){
-                        xPos++;
-                        increaseMana();
+                        if(xPos<3){
+                            environment[yPos][xPos] = "0";
+                            xPos++;
+                            play.increaseMana();
+                        } else {
+                            System.out.println("Out of Bounds.");
+                        }
                     } else if (move.equals("S")){
-                        yPos--;
-                        increaseMana();
+                        if(yPos<4){
+                            environment[yPos][xPos] = "0";
+                            yPos++;
+                            play.increaseMana();
+                        } else {
+                            System.out.println("Out of Bounds.");
+                        }
                     } else {
                         System.out.println("Error.  Retry.");
                         continue;
                     }
                 }
-                while(inFight){
-                    createMonsters();
-                    int monsterDamage = (int)Math.random()*monster.diff + monster.minDamage;
-                    double playerDamage;
+                int monsterNumber = (int)(Math.random()*20);
+                    if(monsterNumber < 10){
+                        monster = new monsters(50, 3, 5);
+                    } else if (monsterNumber < 15){
+                        monster = new monsters(60, 5, 5);
+                    } else if (monsterNumber < 18){
+                        monster = new monsters(70, 7, 5);
+                    } else if (monsterNumber < 19){
+                        monster = new monsters(80, 10, 5);
+                    } else if (monsterNumber < 20){
+                        monster = new monsters(90, 13, 5);
+                    } else{
+                        System.out.println("error");
+                    }
+                    double monsterHealth = monster.getHealth();
+
+                while(play.inFight){
+                    int monsterDamage = ((int)(Math.random()*monster.getDiff() + monster.getMinDamage()));
+                    double playerDamage = 0;
                     String movement;
                     environment[yPos][xPos] = "P";
                     for(int r = 0; r < environment.length; r++){
@@ -478,26 +544,31 @@ class main{
                     }
                     System.out.println();
                     }
-                    System.out.println("Player Health: " + play.health)
-                    System.out.println("Monster Health: " + monsters.health);
+                    System.out.println("Player Health: " + play.health);
+                    System.out.println("Monster Health: " + monsterHealth);
                     System.out.println("Monster deals: " + monsterDamage);
+                    play.health -= monsterDamage;
                     System.out.println("Choose a move: (A)ttack, (D)odge, (C)ast a spell, or attempt to (R)un");
                     movement = choice.nextLine();
                     if(movement.equals("A")){
                         playerDamage = play.attack();
-                        System.out.println("Player deals: " + playerDamage)
-                        monsters.health -= playerDamage;
+                        System.out.println("Player deals: " + playerDamage);
+                        monsterHealth -= playerDamage;
                     } else if (movement.equals("D")){
                         if(play.dodge()){
                             System.out.println("Monster's attack negated.");
+                            play.health += monsterDamage;
                         } else {
                             System.out.println("Player failed to dodge.");
-                            play.health -= monsterDamage;
                         }
                     } else if (movement.equals("C")){
-                        playerDamage = play.castASpell();
-                        System.out.println("Player deals: " + playerDamage)
-                        monsters.health -= playerDamage;
+                        if(play.mana > 20){
+                            playerDamage = play.castASpell();
+                            System.out.println("Player deals: " + playerDamage);
+                            monsterHealth -= playerDamage;
+                        } else {
+                            System.out.println("Not enough mana.");
+                        }
                     } else if ( movement.equals("R")){
                         if(play.run()){
                             System.out.println("Player succesfully ran.");
@@ -507,32 +578,24 @@ class main{
                             play.inFight = true;
                         }
                     }
-                    if(monsters.health < 0){
+                    if(monsterHealth <= 0){
                         System.out.println("Monster killed.");
                         monstersKilled++;
                         play.inFight = false;
+                        environment[monY][monX] = "0";
+                    }
+                    if(play.health < 0){
+                        System.out.println("You have died.");
+                        continue;
                     }
                 }
             }
-        }
-
-        private void createMonsters(int x, int y){
-            private monsterNumber = Math.random()*20;
-            if(monsterNumber < 10){
-                monsters monster = new monsters(10.0, 5, 5, x, y);
-            } else if (monsterNumber < 15){
-                monsters monster = new monsters(15.0, 7, 5, x, y);
-            } else if (monsterNumber < 18){
-                monsters monster = new monsters(20.0, 10, 5, x, y);
-            } else if (monsterNumber < 19){
-                monsters monster = new monsters(25.0, 12, 5, x, y);
-            } else if (monsterNumber < 20){
-                monsters monster = new monsters(30.0, 15, 5, x, y);
-            } else{
-                System.out.println("error");
-            }
-        }
+            
+     
         choice.close();
         points.close();
+    }
+
+    private static void playTheGame() {
     }  
 }  

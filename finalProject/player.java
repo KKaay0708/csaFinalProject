@@ -6,40 +6,39 @@ public class player{
     public int spirit;
     public int health;
     public int mana;
-    Boolean inFight;
+    Boolean inFight = false;
 
-    public player(barbarian play){
-        strength = play.strength;
-        agility = play.agility;
-        stamina = play.stamina;
-        intelligence = play.intelligence;
-        spirit = play.spirit;
-        health = play.health;
-        mana = play.mana;
+    public player(barbarian plays){
+        strength = plays.strength;
+        agility = plays.agility;
+        stamina = plays.stamina;
+        intelligence = plays.intelligence;
+        spirit = plays.spirit;
+        health = plays.health;
+        mana = plays.mana;
     }
-    public player(sorcerer play){
-        strength = play.strength;
-        agility = play.agility;
-        stamina = play.stamina;
-        intelligence = play.intelligence;
-        spirit = play.spirit;
-        health = play.health;
-        mana = play.mana;
+    public player(sorcerer plays){
+        strength = plays.strength;
+        agility = plays.agility;
+        stamina = plays.stamina;
+        intelligence = plays.intelligence;
+        spirit = plays.spirit;
+        health = plays.health;
+        mana = plays.mana;
     }
-    public player (rogue play){
-        strength = play.strength;
-        agility = play.agility;
-        stamina = play.stamina;
-        intelligence = play.intelligence;
-        spirit = play.spirit;
-        health = play.health;
-        mana = play.mana;
+    public player (rogue plays){
+        strength = plays.strength;
+        agility = plays.agility;
+        stamina = plays.stamina;
+        intelligence = plays.intelligence;
+        spirit = plays.spirit;
+        health = plays.health;
+        mana = plays.mana;
     }
     
-    private double attack(){
-        double damage;
-        damage = strength + (int)Math.random()*2;
-        if(Math.random()*55 <= agility){
+    public double attack(){
+        double damage = strength *2;
+        if((int)Math.random()*55 <= agility){
             return damage * 1.5;
         } else {
             return damage;
@@ -47,7 +46,7 @@ public class player{
 
     }
     
-    private boolean dodge(){
+    public boolean dodge(){
         if(Math.random()*55 <= agility){
             return true;
         } else {
@@ -55,12 +54,12 @@ public class player{
         }
     }
 
-    private double castASpell(){
+    public double castASpell(){
         mana -= 20;
         return spirit*2;
     }
     
-    private void run(){
+    public Boolean run(){
         if(((int)Math.random()*2+1) == 1){
             return true;
         } else {
@@ -68,7 +67,7 @@ public class player{
         }
     }
 
-    private void increaseMana(){
+    public void increaseMana(){
         mana += spirit;
     }
 

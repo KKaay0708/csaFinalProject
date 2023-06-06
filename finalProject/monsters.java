@@ -1,17 +1,29 @@
 public class monsters{
-    private double health;
-    private int minDamage;
-    private int damageDifference;
-    private int xPosition;
-    private int yPosition;
+    public double health;
+    public int minDamage;
+    public int damageDifference;
 
-    public monsters(double h, int min, int diff, int x, int y){
+    public monsters(){
+        health = 0;
+        minDamage = 0;
+        damageDifference = 0;
+    }
+
+    public monsters(double h, int min, int diff){
         health = h;
         minDamage = min;
         damageDifference = diff;
-        xPosition = x;
-        yPosition = y;
+    }  
+    
+    public double getHealth(){
+        return health;
     }
     
-    
+    public int getDiff(){
+        return damageDifference;
+    }
+
+    public int getMinDamage(){
+        return minDamage;
+    }
 }
