@@ -26,6 +26,7 @@ class main{
         while(character.equals("")){
             System.out.println("Type one of the following characters to select: Barbarian, Sorcerer, or Rogue");
             System.out.println("For more details on each character, type: Stats");
+            System.out.println("Capititlization Matters");
             tentative = choice.nextLine();
             if(character.equals("Stats")){
                 System.out.println("Barbarian:");
